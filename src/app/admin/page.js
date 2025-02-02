@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import PantoneTable from "./pantone_table";
 import PantoneFilter from "./pantone_filter";
 import styles from "./styles.module.css";
@@ -21,7 +21,7 @@ const AdminPage = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${process.envNEXT_PUBLIC_API_URL_PANTONES}?page=${page}&limit=300`
+        `${process.env.NEXT_PUBLIC_API_URL_PANTONES}?page=${page}&limit=300`
       );
       const data = await response.json();
 

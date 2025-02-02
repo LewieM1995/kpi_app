@@ -1,36 +1,57 @@
+# **KPI Dashboard**
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+## **Getting Started**
 
-```bash
+### Clone the repository
+git clone https://github.com/LewieM1995/kpi_app.git
+
+# Navigate into the project folder
+cd kpi_app
+
+# Install dependencies
+npm install
+
+# Set up environment variables (create a .env.local file)
+NEXT_PUBLIC_API_URL={GET /api/specific_kpi_endpoint} // route to controllers for specific kpis
+NEXT_PUBLIC_API_URL_AUTH={POST /api/login} // authenticate the user
+NEXT_PUBLIC_API_URL_QFORM={POST /api/quarantine-ink} // form submission for quarantine_form
+NEXT_PUBLIC_API_URL_CHARTS={GET /api/charts} // retrieves chart data for visualization
+NEXT_PUBLIC_API_URL_PANTONES={GET /api/pantones} // fetche Pantone color information
+NEXT_PUBLIC_API_URL_ADDPANTONE={POST /api/add-pantone} // add a new Pantone color to the system
+NEXT_PUBLIC_API_URL_CMFORM={POST /api/form_} // form submission for cm_submission
+NEXT_PUBLIC_API_URL_UPDATEPANTONES={PUT /api/update-pantone} // updates an existing Pantone color record
+NEXT_PUBLIC_API_URL_DELETEPANTONE={DELETE /api/delete-pantone} // deletes a Pantone color record
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## File Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/kpi_app
+│── /public          # Static assets (images, etc.)
+│── .env.local       # environment variables
+│── README.md        # This README file
+│── /src/app
+│   ├── page.js // main page (empty atm) localhost:3000/
+│   ├── layout.js // display children provide auth
+│   ├── /add_pantones
+│   ├── /admin
+│   ├── /auth_context
+│   ├── /client_layout
+|   ├── /cm_submission
+|   ├── /kp_graphs
+|   ├── /login
+|   ├── /quarantine_form
+        ├── pages.js
+        ├── components.js
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+# **Contact / About Me**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub: [@LewieM1995](https://github.com/LewieM1995)
+LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/lewie-marks-b84504124/)

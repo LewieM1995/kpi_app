@@ -32,11 +32,13 @@ export const AuthProvider = ({ children }) => {
 
   }, []);
 
+  console.log(process.env)
+
   const login = async (username, password) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL_GET_USER}`,
+        `${process.env.NEXT_PUBLIC_API_URL_AUTH}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

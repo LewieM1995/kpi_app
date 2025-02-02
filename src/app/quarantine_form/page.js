@@ -31,7 +31,7 @@ const QuarantineForm = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch('https://policeappserver.duckdns.org:4000/fujiseal/postQuarantineInk', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_QFORM}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formState }),
@@ -57,7 +57,7 @@ const QuarantineForm = () => {
       if (!isAuthenticated) {
         router.push("/");
       }
-    }, [isAuthenticated, router]); // ✅ Runs only when `isAuthenticated` changes
+    }, [isAuthenticated, router]); // checks `isAuthenticated` changes
   
     if (!isAuthenticated) return null;
 

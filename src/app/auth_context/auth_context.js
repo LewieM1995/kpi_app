@@ -32,8 +32,6 @@ export const AuthProvider = ({ children }) => {
 
   }, []);
 
-  console.log(process.env)
-
   const login = async (username, password) => {
     setIsLoading(true);
     try {

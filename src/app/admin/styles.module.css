@@ -1,0 +1,94 @@
+
+.adminPage {
+  padding: 16px;
+  max-width: 1200px; /* Limits the page width to make it look more compact */
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.inputText {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 350px; /* Reduce the width of the filter box */
+  margin-bottom: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tableHeader {
+  padding: 8px;
+  background-color: #f3f3f3;
+  text-align: left;
+  font-weight: bold;
+  color: #2d3e50;
+  font-size: 12px; /* Small font size for headers */
+  white-space: nowrap;
+}
+
+.tableCell {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px; /* Small font size for cells */
+}
+
+.inputText {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+  max-width: 100px; /* Small input boxes */
+  margin: 2px 0;
+}
+
+.inputText:focus {
+  border-color: #0078d4;
+  outline: none;
+  background: white;
+}
+
+.btn, .btnDelete {
+  background-color: #0078d4;
+  color: white;
+  font-size: 12px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.btn:hover {
+  background-color: #005a9e;
+}
+
+.btnDelete {
+  background-color: #e81123; /* Red delete button */
+  margin-left: 8px;
+}
+
+.btnDelete:hover {
+  background-color: #d83b01;
+}
+
+.tableEmpty {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  padding: 10px;
+}
+
+.loading {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+  color: #0078d4;
+}

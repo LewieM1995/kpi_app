@@ -1,0 +1,23 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 6px;
+  }
+  
+  .gridItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    text-align: center;
+    border-radius: 2px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .gridItem:hover {
+    background-color: #e5e7eb
+  }
+  
+  

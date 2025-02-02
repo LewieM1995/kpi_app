@@ -1,0 +1,32 @@
+.aniloxTypeContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.aniloxTypeContainer h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.aniloxTypeSelection {
+  display: grid;
+  grid-template-columns: repeat(4, calc(25% - 10px));
+  gap: 5px;
+  margin-bottom: 1rem;
+  padding: 5px;
+}
+
+.aniloxScatterContainer {
+  width: 100%;
+  display: grid;
+}
+
+@media screen and (min-width: 1200px) {
+  .aniloxTypeSelection {
+    display: grid;
+    grid-template-columns: repeat(10, calc(10% - 10px));
+    gap: 5px;
+    margin-bottom: 1rem;
+    padding: 2px;
+  }
+}

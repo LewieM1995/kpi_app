@@ -1,0 +1,45 @@
+.submitContainer {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: #f3f2f1;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    margin-top: 16px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .submitContainer:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Primary Button (Submit) */
+  .btnPrimary {
+    background: #0078d4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .btnPrimary:hover {
+    background: #005a9e;
+  }
+  
+  /* Secondary Button (Add Colour) */
+  .btnSecondary {
+    background: #ffffff;
+    color: #0078d4;
+    border: 1px solid #0078d4;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out
+  }

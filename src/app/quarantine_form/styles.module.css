@@ -1,0 +1,72 @@
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2d3e50;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 6px;
+  padding-top: 5px;
+}
+
+/* Input and Select Fields (Scoped) */
+.inputGroup :global(input),
+.inputGroup :global(select) {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease;
+  max-width: 300px;
+}
+
+.inputGroup :global(input:focus),
+.inputGroup :global(select:focus) {
+  border-color: #0078d4;
+  outline: none;
+  background: #ffffff;
+}
+
+/* Button Section */
+.submitSection {
+  margin-top: 20px;
+}
+
+.submitButton {
+  background: #0078d4;
+  color: white;
+  font-size: 16px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  max-width: 100px;
+}
+
+.submitButton:hover {
+  background: #005a9e;
+}
+
+/* Loading State */
+.submitButton:disabled {
+  background: #d1d1d1;
+  cursor: not-allowed;
+}

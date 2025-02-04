@@ -9,7 +9,7 @@ const JobDetails = ({ PPONum, setPPONum, designNum, setDesignNum, speNum, setSPE
           <label>PPO Number</label>
           <input
             type="text"
-            placeholder="PPO2-#"
+            placeholder=""
             onChange={handleInputChange(setPPONum, "PPO2-", 6)}
             value={PPONum}
             className={styles.input}
@@ -20,7 +20,7 @@ const JobDetails = ({ PPONum, setPPONum, designNum, setDesignNum, speNum, setSPE
           <label>Design Number</label>
           <input
             type="text"
-            placeholder="200-#"
+            placeholder=""
             onChange={handleInputChange(setDesignNum, "200-", 6)}
             value={designNum}
             className={styles.input}

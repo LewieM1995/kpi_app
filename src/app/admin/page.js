@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
 
 const AdminPage = () => {
   const router = useRouter();
-  const isAdminValue = typeof window !== "undefined" && localStorage.getItem("isAdmin") === "true";
+  const isAdminValue = typeof window !== "undefined" && localStorage.getItem("isAdmin");
 
   const [pantones, setPantones] = useState([]);
   const [filter, setFilter] = useState("");
@@ -16,6 +16,8 @@ const AdminPage = () => {
   const [loading, setLoading] = useState(false);
 
   const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  console.log(hasMore)
 
   const fetchPantoneData = async (page) => {
     setLoading(true);
@@ -32,6 +34,7 @@ const AdminPage = () => {
         return acc;
       }, {});
       setEditedPantones((prev) => ({ ...prev, ...initialEdits }));
+
     } catch (error) {
       console.error("Error fetching Pantone options:", error);
     } finally {
@@ -104,6 +107,8 @@ const AdminPage = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [loading]);
+
+
 
   if (!isAdminValue) {
     router.push("/");

@@ -18,7 +18,7 @@ const ColourInputGroup = ({
       {/* Header with RGB preview and Remove Button */}
       <div className={styles.header}>
         <span className={styles.rgbText}>{color.rgb ? `RGB: ${color.rgb}` : "No Color Selected"}</span>
-        <span className={styles.colorPreview} style={{ backgroundColor }}></span>
+        <span className={color.rgb ? styles.colorPreview : "hidden"} style={{ backgroundColor }}></span>
         {showRemoveButton && (
           <button className={styles.removeButton} onClick={() => handleRemoveColour(index)}>
             ✖
@@ -28,7 +28,7 @@ const ColourInputGroup = ({
 
       {/* Checkbox for Previous Job */}
       <div className={styles.inputGroup}>
-        <label className={styles.label}>Was colour on previous job?</label>
+        <label className={styles.label}>Was colour on previous job? (tick if yes)</label>
         <input 
           type="checkbox" 
           checked={color.wasColourOnPrevJob || false} 

@@ -8,12 +8,12 @@ const AniloxAverageChart = ( { data } ) => {
     data: data,
     series: [
       {
-        type: "line",
+        type: "bar",
         xKey: "anilox",
         yKey: "avgDE",
         yName: "Average DE",
         stroke: "green",
-        marker: { enabled: false },
+        label: { enabled: true, color: "white", fontSize: 12, formatter: ({ datum }) => `${datum.count}`}
       },
       {
         type: "line",
@@ -23,7 +23,7 @@ const AniloxAverageChart = ( { data } ) => {
         stroke: "red",
         strokeWidth: 2,
         marker: { enabled: false },
-      },
+      }
     ],
     axes: [
       {

@@ -22,7 +22,6 @@ const AniloxScatterChart = ({ data }) => {
       title: "Trend Line",
       stroke: "#ff6b6b",
       strokeWidth: 2,
-      marker: { enabled: false },
     }
   ] : [];
 
@@ -66,7 +65,6 @@ const AniloxScatterChart = ({ data }) => {
     legend: { enabled: true },
     tooltip: {
       enabled: true,
-      format: "Date: {x}, DE: {y}",
     },
   };
 

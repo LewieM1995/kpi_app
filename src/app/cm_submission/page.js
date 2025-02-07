@@ -15,7 +15,7 @@ const CmSubmission = () => {
     if (!isAuthenticated) {
       router.push("/");
     }
-  }, [isAuthenticated, router]); // ✅ Runs only when `isAuthenticated` changes
+  }, [isAuthenticated, router]); // Runs only when `isAuthenticated` changes
 
   if (!isAuthenticated) return null;
 

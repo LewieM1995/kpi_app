@@ -34,7 +34,7 @@ const ColourForm = () => {
   useEffect(() => {
     const fetchPantoneOptions = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_PANTONES}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_PANTONES}?fullList=true`);
         const data = await response.json();
         setPantoneOptions(data);
       } catch (error) {

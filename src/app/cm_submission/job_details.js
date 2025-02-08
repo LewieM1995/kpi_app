@@ -10,7 +10,7 @@ const JobDetails = ({ PPONum, setPPONum, designNum, setDesignNum, speNum, setSPE
           <input
             type="text"
             placeholder=""
-            onChange={handleInputChange(setPPONum, "PPO2-", 6)}
+            onChange={handleInputChange(setPPONum, 6)}
             value={PPONum}
             className={styles.input}
           />
@@ -21,7 +21,7 @@ const JobDetails = ({ PPONum, setPPONum, designNum, setDesignNum, speNum, setSPE
           <input
             type="text"
             placeholder=""
-            onChange={handleInputChange(setDesignNum, "200-", 6)}
+            onChange={handleInputChange(setDesignNum, 6)}
             value={designNum}
             className={styles.input}
           />
@@ -32,7 +32,7 @@ const JobDetails = ({ PPONum, setPPONum, designNum, setDesignNum, speNum, setSPE
           <input
             type="text"
             placeholder=""
-            onChange={handleInputChange(setSPENum, "SPE-", 7)}
+            onChange={handleInputChange(setSPENum, 7)}
             value={speNum}
             className={styles.input}
           />

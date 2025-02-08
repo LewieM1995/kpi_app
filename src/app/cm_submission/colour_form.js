@@ -3,12 +3,12 @@ import JobDetails from "./job_details";
 import ColourDetails from "./colour_details";
 import SunAttendPress from "./sap_date_time";
 import SubmitSection from "./submit";
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 const ColourForm = () => {
-  const [PPONum, setPPONum] = useState("PPO2-");
-  const [designNum, setDesignNum] = useState("200-");
-  const [speNum, setSPENum] = useState("SPE-");
+  const [PPONum, setPPONum] = useState("");
+  const [designNum, setDesignNum] = useState("");
+  const [speNum, setSPENum] = useState("");
   const [counter, setCounter] = useState(1);
   const [colors, setColors] = useState(
     Array(counter).fill({
@@ -27,14 +27,16 @@ const ColourForm = () => {
   const [sunAttendPress, setSunAttendPress] = useState(null);
   const [pantoneOptions, setPantoneOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [updateMessage, setUpdateMessage] = useState('');
+  const [error, setError] = useState("");
+  const [updateMessage, setUpdateMessage] = useState("");
   const [formKey, setFormKey] = useState(0);
 
   useEffect(() => {
     const fetchPantoneOptions = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_PANTONES}?fullList=true`);
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL_PANTONES}?fullList=true`
+        );
         const data = await response.json();
         setPantoneOptions(data);
       } catch (error) {
@@ -44,13 +46,10 @@ const ColourForm = () => {
     fetchPantoneOptions();
   }, []);
 
-  const handleInputChange = (setter, prefix, sliceValue) => (e) => {
+  const handleInputChange = (setter, sliceValue) => (e) => {
     let value = e.target.value;
-    if (value.length < prefix.length) value = prefix;
-    else {
-      const numPart = value.slice(prefix.length).replace(/[^0-9]/g, "").slice(0, sliceValue);
-      value = prefix + numPart;
-    }
+    const numPart = value.replace(/[^0-9]/g, "").slice(0, sliceValue);
+    value = numPart;
     setter(value);
   };
 
@@ -65,29 +64,34 @@ const ColourForm = () => {
   const handleAddColour = () => {
     if (counter < 6) {
       setCounter((prevCount) => prevCount + 1);
-      setColors((prevColours) => [...prevColours, { selectedColor: null, rgb: null, anilox: null, DE: "", target: null }]);
+      setColors((prevColours) => [
+        ...prevColours,
+        { selectedColor: null, rgb: null, anilox: null, DE: "", target: null },
+      ]);
     }
   };
 
   const resetForm = () => {
-    setPPONum("PPO2-"); // Reset to empty string
-    setDesignNum("200-"); // Reset to empty string
-    setSPENum("SPE-"); // Reset to empty string
+    setPPONum(""); // Reset to empty string
+    setDesignNum(""); // Reset to empty string
+    setSPENum(""); // Reset to empty string
     setCounter(1); // Reset the counter
-    setColors([{
-      selectedColor: null,
-      selectedColorType: null,
-      rgb: null,
-      anilox: null,
-      DE: "",
-      target: null,
-      wasColourOnPrevJob: false
-    }]); // Reset colors array to initial state
+    setColors([
+      {
+        selectedColor: null,
+        selectedColorType: null,
+        rgb: null,
+        anilox: null,
+        DE: "",
+        target: null,
+        wasColourOnPrevJob: false,
+      },
+    ]); // Reset colors array to initial state
     setSunAttendPress(null); // Reset Sun Attend Press to null
     setError(null); // Clear any validation errors
     setDate(null);
 
-    setFormKey(prevKey => prevKey + 1);
+    setFormKey((prevKey) => prevKey + 1);
   };
 
   const handleRemoveColour = (index) => {
@@ -102,8 +106,16 @@ const ColourForm = () => {
       return "Please fill out all job code fields";
     }
     for (let i = 0; i < colors.length; i++) {
-      const { selectedColor, selectedColorType, rgb, anilox, DE, target } = colors[i];
-      if (!selectedColor || !selectedColorType || !rgb || !anilox || !DE || !target) {
+      const { selectedColor, selectedColorType, rgb, anilox, DE, target } =
+        colors[i];
+      if (
+        !selectedColor ||
+        !selectedColorType ||
+        !rgb ||
+        !anilox ||
+        !DE ||
+        !target
+      ) {
         return `Please fill out all fields for Colour ${i + 1}`;
       }
     }
@@ -118,39 +130,42 @@ const ColourForm = () => {
     const validationError = validateForm();
 
     if (validationError) {
-      setError(validationError);  // Set error if validation fails
+      setError(validationError); // Set error if validation fails
       return;
     }
 
     setIsLoading(true); // Set loading to true
     const formData = {
-      PPONum,
-      designNum,
-      speNum,
+      PPONum: `PPO2-${PPONum}`,
+      designNum: `200-${designNum}`,
+      speNum: `SPE-${speNum}`,
       colors,
       sunAttendPress,
-      date
+      date,
     };
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_CMFORM}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL_CMFORM}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         resetForm();
-        setUpdateMessage('Form Submitted')
+        setUpdateMessage("Form Submitted");
       } else {
         alert("Failed to submit data");
-        setUpdateMessage('Failed to submit');
-        setError('Failed to submit');
+        setUpdateMessage("Failed to submit");
+        setError("Failed to submit");
       }
     } catch (error) {
-      setError('Error submitting data')
+      setError("Error submitting data");
       console.error("Error:", error);
     } finally {
       resetForm();
@@ -214,11 +229,41 @@ const ColourForm = () => {
 
   return (
     <form onSubmit={handleSubmit} key={formKey}>
-      <JobDetails PPONum={PPONum} setPPONum={setPPONum} designNum={designNum} setDesignNum={setDesignNum} speNum={speNum} setSPENum={setSPENum} handleInputChange={handleInputChange} />
-      <ColourDetails colors={colors} options={pantoneOptions} handleChange={handleChange} aniloxOptions={aniloxOptions} targetOptions={targetOptions} handleRemoveColour={handleRemoveColour} />
-      <SunAttendPress sunAttendPress={sunAttendPress} setSunAttendPress={setSunAttendPress} sunAttendOptions={sunAttendOptions} handleDateChange={(e) => setDate(e.target.value)} date={date} />
-      {error ? <span className={styles.tempMessage}>{error}</span> : updateMessage ? <span>{updateMessage}</span> : null}
-      <SubmitSection isLoading={isLoading} handleSubmit={handleSubmit} handleAddColour={handleAddColour} counter={counter} />
+      <JobDetails
+        PPONum={PPONum}
+        setPPONum={setPPONum}
+        designNum={designNum}
+        setDesignNum={setDesignNum}
+        speNum={speNum}
+        setSPENum={setSPENum}
+        handleInputChange={handleInputChange}
+      />
+      <ColourDetails
+        colors={colors}
+        options={pantoneOptions}
+        handleChange={handleChange}
+        aniloxOptions={aniloxOptions}
+        targetOptions={targetOptions}
+        handleRemoveColour={handleRemoveColour}
+      />
+      <SunAttendPress
+        sunAttendPress={sunAttendPress}
+        setSunAttendPress={setSunAttendPress}
+        sunAttendOptions={sunAttendOptions}
+        handleDateChange={(e) => setDate(e.target.value)}
+        date={date}
+      />
+      {error ? (
+        <span className={styles.tempMessage}>{error}</span>
+      ) : updateMessage ? (
+        <span>{updateMessage}</span>
+      ) : null}
+      <SubmitSection
+        isLoading={isLoading}
+        handleSubmit={handleSubmit}
+        handleAddColour={handleAddColour}
+        counter={counter}
+      />
     </form>
   );
 };

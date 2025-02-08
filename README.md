@@ -16,6 +16,9 @@ cd kpi_app
 # Install dependencies
 npm install
 
+# Run the development server
+npm run dev
+
 # API Endpoints
 NEXT_PUBLIC_API_URL=         # GET /api/specific_kpi_endpoint - Route to controllers for specific KPIs
 NEXT_PUBLIC_API_URL_AUTH=    # POST /api/login - Authenticate the user
@@ -26,9 +29,6 @@ NEXT_PUBLIC_API_URL_ADDPANTONE=    # POST /api/add-pantone - Add a new Pantone c
 NEXT_PUBLIC_API_URL_CMFORM=        # POST /api/form_ - Form submission for cm_submission
 NEXT_PUBLIC_API_URL_UPDATEPANTONES= # PUT /api/update-pantone - Updates Pantone color record
 NEXT_PUBLIC_API_URL_DELETEPANTONE= # DELETE /api/delete-pantone - Deletes Pantone color record
-
-# Run the development server
-npm run dev
 
 # Project structure
 /kpi_app
@@ -50,6 +50,25 @@ npm run dev
         └── components.js
 
 ```
+
+# Dependancies
+    ag-charts-react: "^11.0.4",
+    next: "15.1.6",
+    react: "^19.0.0",
+    react-dom: "^19.0.0",
+    react-select: "^5.10.0"
+
+# Screenshots
+![Data Collection Page](public/kpi-screenshot-01.jpg)
+![Scatter Graph](public/kpi-screenshot-02.jpg)
+![Bar Graph ](public/kpi-screenshot-03.jpg)
+
+# Built With
++ React - Front end
++ MySQL - Database
++ AWS Hosting - RDS, Amplify and EC2
++ Nodejs - Backend / RESTful api
+
 
 # Contact
 GitHub: [@LewieM1995](https://github.com/LewieM1995)

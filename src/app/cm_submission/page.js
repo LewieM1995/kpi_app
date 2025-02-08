@@ -12,7 +12,8 @@ const CmSubmission = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    console.log("Auth state:", isAuthenticated);
+    if (isAuthenticated === false) {
       router.push("/");
     }
   }, [isAuthenticated, router]); // Runs only when `isAuthenticated` changes

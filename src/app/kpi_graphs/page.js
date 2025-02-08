@@ -11,10 +11,10 @@ const KpiGraphs = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (isAuthenticated === false) {
       router.push("/");
     }
-  }, [isAuthenticated, router]); // ✅ Runs only when `isAuthenticated` changes
+  }, [isAuthenticated, router]); //  Runs only when `isAuthenticated` changes
 
   if (!isAuthenticated) return null;
 

@@ -39,7 +39,7 @@ useEffect(() => {
     const router = useRouter();
   
     useEffect(() => {
-      if (!isAuthenticated) {
+      if (isAuthenticated === false) {
         router.push("/");
       }
     }, [isAuthenticated, router]); // checks `isAuthenticated` changes

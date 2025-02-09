@@ -11,36 +11,37 @@ const AdminPage = () => {
   const isAdminValue = typeof window !== "undefined" && localStorage.getItem("isAdmin");
 
   const [pantones, setPantones] = useState([]);
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState('');
   const [editedPantones, setEditedPantones] = useState({});
   const [loading, setLoading] = useState(false);
 
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  console.log(hasMore)
 
-  const fetchPantoneData = async (page) => {
+  const fetchPantoneData = async (page, filter) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL_PANTONES}?page=${page}&limit=300`
+        filter
+          ? `${process.env.NEXT_PUBLIC_API_URL_PANTONES}?query=${encodeURIComponent(filter)}`
+          : `${process.env.NEXT_PUBLIC_API_URL_PANTONES}?page=${page}&limit=300`
       );
       const data = await response.json();
-
-      setPantones((prev) => [...prev, ...data]); // Append new data to the existing pantones
-
+  
+      setPantones((prev) => (filter ? data : [...prev, ...data])); // Replace list when searching
+  
       const initialEdits = data.reduce((acc, pantone) => {
         acc[pantone.id] = { ...pantone };
         return acc;
       }, {});
       setEditedPantones((prev) => ({ ...prev, ...initialEdits }));
-
+  
     } catch (error) {
       console.error("Error fetching Pantone options:", error);
     } finally {
       setLoading(false);
     }
   };
+  
 
   const handleFilterChange = (e) => setFilter(e.target.value);
 
@@ -97,8 +98,8 @@ const AdminPage = () => {
   };
 
   useEffect(() => {
-    fetchPantoneData(page);
-  }, [page]);
+    fetchPantoneData(page, filter ? filter : '');
+  }, [page, filter]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

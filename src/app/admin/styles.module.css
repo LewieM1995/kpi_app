@@ -1,7 +1,6 @@
 
 .adminPage {
-  padding: 16px;
-  max-width: 1200px; /* Limits the page width to make it look more compact */
+  max-width: 1500px; /* Limits the page width to make it look more compact */
   margin: 0 auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -18,7 +17,6 @@
 
 .table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 10px;
 }
 
@@ -39,14 +37,13 @@
 }
 
 .inputText {
-  width: 100%;
   padding: 6px 8px;
   font-size: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background: #f9f9f9;
   max-width: 100px; /* Small input boxes */
-  margin: 2px 0;
+  margin: 3px 0;
 }
 
 .inputText:focus {

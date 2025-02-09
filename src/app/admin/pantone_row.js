@@ -13,7 +13,7 @@ const PantoneRow = ({ pantone, editedPantones, handleEditChange, handleSaveChang
           />
         </td>
       ))}
-      <td>
+      <td className={styles.buttonsCont}>
         <button className={styles.btn} onClick={() => handleSaveChanges(pantone.id)}>Save</button>
         <button className={styles.btnDelete} onClick={() => handleDelete(pantone.id)}>Delete</button>
       </td>

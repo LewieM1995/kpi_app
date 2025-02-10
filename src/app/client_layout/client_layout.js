@@ -44,6 +44,8 @@ export default function ClientLayout({ children }) {
               <div className={styles.navItem} onClick={() => router.push('/cm_submission')} >Colour Match Submission</div>
               <div className={styles.navItem} onClick={() => router.push('/add_pantone')} >Add New Pantone</div>
               <div className={styles.navItem} onClick={() => router.push('/quarantine_form')} >Quarantine Inks Form</div>
+              <div className={styles.navItem} onClick={() => router.push('/process_qc')} >Process QC</div>
+              <div className={styles.navItem} onClick={() => router.push('/process_graph')} >Process Graph</div>
               { isAdminValue ? <div className={styles.navItem} onClick={() => router.push('/admin')} >Admin</div> : null}
               {isAuthenticated ? <div className={styles.navItem} onClick={(e) => logout(e)}>Logout</div> : null }
             </nav>

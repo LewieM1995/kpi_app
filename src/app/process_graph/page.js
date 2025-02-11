@@ -19,7 +19,7 @@ const ProcessGraph = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:4000/fujiseal/getProcessQCData`,
+          `${process.env.NEXT_PUBLIC_API_URL_GETPROCESSQCDATA}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

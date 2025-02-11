@@ -42,7 +42,7 @@ const ProcessQC = () => {
     e.preventDefault();
 
     const response = await fetch(
-        `http://localhost:4000/fujiseal/postProcessData`,
+        `${process.env.NEXT_PUBLIC_API_URL_POSTPROCESSDATA}`,
         {
           method: "POST",
           headers: {

@@ -23,7 +23,6 @@ const RightFirstTimeChart = ({data}) => {
       {
         type: "pie",
         angleKey: "percentage",
-        labelKey: "status",
         calloutLabelKey: "status",
         sectorLabelKey: "percentage",
         fills: ["#4CAF50", "#F44336"],

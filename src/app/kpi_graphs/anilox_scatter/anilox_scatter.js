@@ -20,8 +20,11 @@ const AniloxScatterChart = ({ data }) => {
       xKey: "date",
       yKey: "trendline",
       title: "Trend Line",
-      stroke: "#ff6b6b",
       strokeWidth: 2,
+      marker: {
+        size: 0,
+        fill: 'orange'
+      }
     }
   ] : [];
 

@@ -12,7 +12,6 @@ const ProcessGraphData = ( {data} ) => {
         xKey: "anilox",
         yKey: "press_result",
         yName: "Press Result",
-        stroke: "green",
         label: { enabled: true, color: "white", fontSize: 12, formatter: ({ datum }) => `${datum.count}`}
       },
       {
@@ -20,8 +19,6 @@ const ProcessGraphData = ( {data} ) => {
         xKey: "anilox",
         yKey: "proofer_result",
         yName: "Proofer Result",
-        stroke: "blue",
-        strokeWidth: 2,
         label: { enabled: true, color: "white", fontSize: 12, formatter: ({ datum }) => `${datum.count}`}
       },
       {
@@ -31,6 +28,9 @@ const ProcessGraphData = ( {data} ) => {
         yName: "Target",
         stroke: "green",
         strokeWidth: 2,
+        marker: {
+          size: 0,
+        }
       },
       {
         type: "line",
@@ -39,6 +39,10 @@ const ProcessGraphData = ( {data} ) => {
         yName: "Min",
         stroke: "red",
         strokeWidth: 2,
+        marker: {
+          size: 0,
+          fill: 'red'
+        }
       }
     ],
     axes: [
@@ -53,7 +57,7 @@ const ProcessGraphData = ( {data} ) => {
         position: "left",
         title: { text: "Density" },
         min: 0,
-        max: 4,
+        max: 2.3,
       },
     ],
     title: { text: `Anilox Performance by ${ data[0].colour ? data[0].colour[0].toUpperCase() + data[0].colour.slice(1) : 'Undefined'} ` },

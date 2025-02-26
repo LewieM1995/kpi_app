@@ -36,6 +36,11 @@ const aniloxOptions = [
     { value: "5A", label: "5A" },
     { value: "5B", label: "5B" },
     { value: "5C", label: "5C" },
+
+    { value: "6A", label: "6A" },
+    { value: "6B", label: "6B" },
+    { value: "6C", label: "6C" },
+    { value: "6D", label: "6D" },
   ];
 
 export default aniloxOptions;

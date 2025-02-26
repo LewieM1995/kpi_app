@@ -6,6 +6,12 @@ import aniloxOptions from '../cm_submission/aniloxOptions';
 const ProcessQC = () => {
   const colors = ['Cyan', 'Magenta', 'Yellow', 'Black'];
 
+
+  // filter out the anilox options that start with 1 or 6 because these represent 1200 volume aniloxes and process QC relates only to 1200 aniloxes
+  const filteredAniloxOptions = aniloxOptions.filter(anilox => 
+    anilox.value.startsWith('1') || anilox.value.startsWith('6')
+  );
+
   const createEmptyRow = () => {
     return {
       id: Date.now(),
@@ -19,8 +25,6 @@ const ProcessQC = () => {
 
   const [rows, setRows] = useState([createEmptyRow()]);
   const [submitted, setSubmitted] = useState(false);
-
-  console.log(rows)
 
   const handleAddRow = () => {
     setRows([...rows, createEmptyRow()]);
@@ -72,7 +76,7 @@ const ProcessQC = () => {
   return (
     <ProcessData 
       rows={rows}
-      aniloxOptions={aniloxOptions}
+      aniloxOptions={filteredAniloxOptions}
       colors={colors}
       onAddRow={handleAddRow}
       onRemoveRow={handleRemoveRow}
